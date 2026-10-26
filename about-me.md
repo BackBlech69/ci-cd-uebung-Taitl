@@ -9,4 +9,4 @@
 - Hatte mal einen Vogel (literally)
 - Koche gerne
 # Warum ist CI/CD für mich relevant?
-- Weil ich in meinen Projekten und auch meinem späteren Berufsleben vor allem Ordentlich arbeiten möchte und nicht dann code der broken ist nach einem commit auf fehler überprüfen möchte.
+- Weil ich in meinen Projekten und auch meinem späteren Berufsleben vor allem Ordentlich arbeiten möchte und nicht dann code der broken ist nach einem commit auf Fehler überprüfen möchte.
