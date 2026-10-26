@@ -33,4 +33,16 @@ class CalculatorTest {
         List<Integer> nums = Arrays.asList(1, 2, 3, null, 4);
         assertEquals(c.sumUp(nums), c.addAll(nums));
     }
-}
+
+    @Test
+    void add_shouldHandleNegativeNumbers() {
+        Calculator c = new Calculator();
+        assertEquals(-5, c.add(-2, -3));
+    }
+
+    @Test
+    void divide_shouldPerformIntegerDivision() {
+        Calculator c = new Calculator();
+        assertEquals(3, c.divide(10, 3));
+    }
+    }
