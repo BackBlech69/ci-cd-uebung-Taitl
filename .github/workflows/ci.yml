@@ -20,19 +20,44 @@ concurrency:
 
 jobs:
   build-and-test:
-    name: Build and Unit Tests
-    runs-on: ubuntu-latest
+    name: Build and Test (${{ matrix.os }}, Java ${{ matrix.java }})
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        java: ['17', '21']
+        exclude:
+          - os: windows-latest
+            java: '21'
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Set up Java 17
+      - name: Set up Java
         uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: ${{ matrix.java }}
           cache: maven
 
       - name: Build and run tests
         run: mvn --batch-mode clean verify
+
+      - name: Upload Surefire reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: surefire-${{ matrix.os }}-java${{ matrix.java }}
+          path: target/surefire-reports/
+          if-no-files-found: warn
+
+      - name: Upload JaCoCo coverage
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: jacoco-${{ matrix.os }}-java${{ matrix.java }}
+          path: target/site/jacoco/
+          if-no-files-found: warn

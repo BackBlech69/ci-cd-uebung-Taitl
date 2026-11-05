@@ -3,9 +3,13 @@ package com.example.cicd;
 public class TextUtils {
 
     public static boolean isPalindrome(String input) {
-        if (input == null) return false;
+        if (input == null) {
+            return false;
+        }
+
         String reversed = new StringBuilder(input).reverse().toString();
-        return input.toLowerCase() == reversed.toLowerCase(); // absichtlich falsch
+
+        return input.equalsIgnoreCase(reversed);
     }
 
     // Leerer Catch-Block + sehr generische Exception
