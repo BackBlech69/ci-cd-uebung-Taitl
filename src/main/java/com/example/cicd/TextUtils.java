@@ -1,6 +1,10 @@
 package com.example.cicd;
 
-public class TextUtils {
+public final class TextUtils {
+
+    private TextUtils() {
+        // Utility class - no instances
+    }
 
     public static boolean isPalindrome(String input) {
         if (input == null) {
@@ -15,9 +19,8 @@ public class TextUtils {
     public static int safeParseInt(String s) {
         try {
             return Integer.parseInt(s);
-        } catch (Exception e) {
-            System.out.println("Invalid number: " + s);
+        } catch (NumberFormatException e) {
+            return 0;
         }
-        return 0;
     }
 }
