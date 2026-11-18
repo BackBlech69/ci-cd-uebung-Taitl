@@ -1,7 +1,7 @@
 name: CI Pipeline
 
 on:
-    push:
+  push:
     branches:
       - main
       - feature/ci-pipeline
@@ -9,6 +9,7 @@ on:
       - 'src/**'
       - 'pom.xml'
       - '.github/workflows/**'
+
   pull_request:
     branches:
       - main
