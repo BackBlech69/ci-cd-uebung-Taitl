@@ -12,13 +12,12 @@ public class TextUtils {
         return input.equalsIgnoreCase(reversed);
     }
 
-    // Leerer Catch-Block + sehr generische Exception
     public static int safeParseInt(String s) {
         try {
             return Integer.parseInt(s);
-        } catch (Exception e) { 
-            // absichtlich leer gelassen
+        } catch (Exception e) {
+            System.out.println("Invalid number: " + s);
         }
-        return 0; // „Fallback“ – diskutabel
+        return 0;
     }
 }
