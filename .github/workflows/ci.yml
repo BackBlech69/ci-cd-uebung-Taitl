@@ -1,11 +1,14 @@
 name: CI Pipeline
 
 on:
-  push:
+    push:
     branches:
       - main
       - feature/ci-pipeline
-
+    paths:
+      - 'src/**'
+      - 'pom.xml'
+      - '.github/workflows/**'
   pull_request:
     branches:
       - main
