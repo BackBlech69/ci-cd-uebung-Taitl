@@ -1,0 +1,15 @@
+# Build output (gets rebuilt in the image)
+target/
+
+# Git and CI
+.git/
+.github/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+
+# Documentation
+*.md
